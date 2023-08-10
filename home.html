@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="./homeStyle.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <p>inventory management</p>
+        <div id="headerIcon">
+            <i id="iconHome" class="material-icons pointer">home</i>
+            <i id="iconPlus" class="material-icons pointer">add_circle_outline</i>
+        </div>
+    </header>
+    <nav>
+        <div>
+            <button id="allProducts">All Products</button>
+            <button class="button" value="men's clothing">Men</button>
+            <button class="button" value="women's clothing">Woman</button>
+            <button class="button" value="jewelery">Jewelery</button>
+            <button class="button" value="electronics">Electronics</button>
+        </div>
+        <div id="searchContainer">
+            <input id="search" value="" placeholder="search">
+            <i class="material-icons" id="searchIcon">search</i>
+        </div>
+    </nav>
+    <h2>Products</h2>
+    <div id="productsContainer">
+    </div>
+    <footer>
+        <p>technical support</p>
+        <i class="material-icons">local_phone</i>
+        <p>+1.555.555.555</p>
+    </footer>
+    <script src="./dataForProject.js"></script>
+    <script src="./home.js"></script>
+</body>
+</html>

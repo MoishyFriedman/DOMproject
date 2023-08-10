@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./addProductStyle.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h2>inventory management</h2>
+      <div id="headerIcon">
+        <i id="iconHome" class="material-icons pointer">home</i>
+        <i id="iconPlus" class="material-icons pointer">add_circle_outline</i>
+      </div>
+    </header>
+    <div id="mainContainer">
+      <div>
+        <h1>add new product</h1>
+      </div>
+      <form>
+        <label>
+          Title
+          <input id="title" type="text" placeholder="Add title..." />
+        </label>
+        <label>
+          Category
+          <input id="category" type="text" placeholder="Add category..." />
+        </label>
+        <label>
+          Price
+          <input id="price" type="text" placeholder="Add price..." />
+        </label>
+        <label>
+            Image URL
+          <input id="image" type="text" placeholder="Add image URL..." />
+        </label>
+        <label>
+            Quantity
+          <input id="quantity" type="text" placeholder="Add quantity..." />
+        </label>
+        <label>
+          Description
+          <input id="bigArea" type="text" placeholder="Add description..." />
+        </label>
+
+        <button>ADD</button>
+      </form>
+    </div>
+    <footer>
+      <p>technical support</p>
+      <i class="material-icons">local_phone</i>
+      <p>+1.555.555.555</p>
+    </footer>
+    <script src="./addProduct.js"></script>
+  </body>
+</html>
