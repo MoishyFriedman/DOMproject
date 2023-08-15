@@ -11,10 +11,11 @@ function newProduct(title, price, quantity, description, category, image) {
     image,
     rating: {
       rate: Math.floor(Math.random() * 5 + 1),
-      count: Math.floor(Math.random() * 200 + 1),
+      count: Math.floor(Math.random() * 200),
     },
   };
   data.push(newArray);
+  localStorage.setItem("dataForProject", JSON.stringify(data));
 }
 
 function addProduct() {
@@ -35,11 +36,10 @@ function addProduct() {
 }
 
 const add = document.getElementsByTagName("button")[0];
+add.textContent = "ADD";
 add.addEventListener("click", () => {
   addProduct();
-  window.open("./home.html");
 });
-
 
 function icons() {
   const headerIcon = document.getElementById("headerIcon");
@@ -53,6 +53,4 @@ function icons() {
   pageAdd.appendChild(iconPlus);
   headerIcon.append(pageHome, pageAdd);
 }
-icons()
-// localStorage.setItem(JSON.stringify(data))
-
+icons();
