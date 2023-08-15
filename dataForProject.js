@@ -226,4 +226,6 @@ const data = [
     rating: { rate: 3.6, count: 145 },
   },
 ];
+
+// restart data
 // localStorage.setItem("dataForProject", JSON.stringify(data))

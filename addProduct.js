@@ -36,9 +36,9 @@ function addProduct() {
 }
 
 const add = document.getElementsByTagName("button")[0];
-add.textContent = "ADD";
 add.addEventListener("click", () => {
   addProduct();
+  window.location.assign('./home.html')
 });
 
 function icons() {
