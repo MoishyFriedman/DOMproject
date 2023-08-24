@@ -1,4 +1,7 @@
-function productCard(object) {
+const baseURL = "http://127.0.0.1:5000/routerProducts/products/";
+
+async function productCard(object) {
+  product = await object;
   const container = document.getElementById("container");
   const HeadTitle = document.createElement("h1");
   HeadTitle.innerText = "product page";
@@ -8,30 +11,30 @@ function productCard(object) {
   const imgHolder = document.createElement("div");
   imgHolder.id = "imgHolder";
   const img = document.createElement("img");
-  img.src = object.image;
+  img.src = product.image;
   imgHolder.appendChild(img);
   const details = document.createElement("div");
   details.id = "details";
   const title = document.createElement("h2");
   title.textContent = "Title";
   const titleText = document.createElement("p");
-  titleText.textContent = object.title;
+  titleText.textContent = product.title;
   const description = document.createElement("h2");
   description.textContent = "Description";
   const descriptionText = document.createElement("p");
-  descriptionText.textContent = object.description;
+  descriptionText.textContent = product.description;
   const category = document.createElement("h2");
   category.textContent = "Category";
   const categoryText = document.createElement("p");
-  categoryText.textContent = object.category;
+  categoryText.textContent = product.category;
   const price = document.createElement("h2");
   price.textContent = "Price";
   const priceText = document.createElement("p");
-  priceText.textContent = object.price;
+  priceText.textContent = product.price;
   const quantity = document.createElement("h2");
   quantity.textContent = "Quantity";
   const quantityText = document.createElement("p");
-  quantityText.textContent = object.quantity;
+  quantityText.textContent = product.quantity;
   details.append(
     title,
     titleText,
@@ -60,10 +63,19 @@ function icons() {
   headerIcon.append(pageHome, pageAdd);
 }
 
-function getObject(productId) {
-  const dataForProject = JSON.parse(localStorage.getItem("dataForProject"));
-  const newArray = dataForProject.find((object) => object.id === productId);
-  return newArray;
+async function dataProducts(productId) {
+  try {
+    const data = await fetch(baseURL + productId);
+    const json = await data.json();
+    return json;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function getObject(productId) {
+  const product = await dataProducts(productId);
+  return product;
 }
 
 function getId() {

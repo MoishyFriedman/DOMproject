@@ -1,10 +1,16 @@
+const baseURL = "http://127.0.0.1:5000/routerProducts/products/";
+
 function removeProduct(card, dataForProject) {
-  card.remove();
   const index = dataForProject.findIndex(
     (product) => product.id === Number(card.id)
   );
   dataForProject.splice(index, 1);
-  localStorage.setItem("dataForProject", JSON.stringify(dataForProject));
+  try {
+    fetch(baseURL + card.id, { method: "delete" });
+    card.remove();
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function BuildCard(product, arrayProducts, dataForProject) {
@@ -51,8 +57,8 @@ function searching(searchBy, dataForProject) {
   addCard(filtered);
 }
 
-function search() {
-  const dataForProject = JSON.parse(localStorage.getItem("dataForProject"));
+async function search() {
+  dataForProject = await dataProducts();
   const input = document.getElementById("search");
   const searchIcon = document.getElementById("searchIcon");
   searchIcon.addEventListener("click", () => searching(input, dataForProject));
@@ -71,9 +77,10 @@ function icons() {
   headerIcon.append(pageHome, pageAdd);
 }
 
-function addCard(
-  dataForProject = JSON.parse(localStorage.getItem("dataForProject"))
-) {
+async function addCard(dataForProject) {
+  if (!dataForProject) {
+    dataForProject = await dataProducts();
+  }
   const products = document.getElementById("productsContainer");
   arrayProducts = [];
   dataForProject.forEach((product) =>
@@ -87,8 +94,8 @@ function mainButton() {
   allProduct.addEventListener("click", () => addCard());
 }
 
-function filterButton(button) {
-  const dataForProject = JSON.parse(localStorage.getItem("dataForProject"));
+async function filterButton(button) {
+  const dataForProject = await dataProducts();
   const newArr = dataForProject.filter(
     (product) => product.category === button.value
   );
@@ -104,14 +111,18 @@ function addEvent() {
   }
 }
 
-function checkData() {
-  if (!JSON.parse(localStorage.getItem("dataForProject"))) {
-    localStorage.setItem("dataForProject", JSON.stringify(data));
+async function dataProducts() {
+  try {
+    const data = await fetch(baseURL);
+    const json = await data.json();
+    return json;
+  } catch (error) {
+    console.log(error);
   }
 }
 
 function main() {
-  checkData();
+  // checkData();
   addEvent();
   mainButton();
   addCard();

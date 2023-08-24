@@ -1,8 +1,22 @@
-const data = JSON.parse(localStorage.getItem("dataForProject"));
+const baseURL = "http://127.0.0.1:5000/routerProducts/";
+
+async function addProducts(newArray) {
+  try {
+    const metaData = {
+      method: "post",
+      body: JSON.stringify(newArray),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    await fetch(baseURL + "products", metaData);
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 function newProduct(title, price, quantity, description, category, image) {
   const newArray = {
-    id: data[data.length - 1].id + 1,
     title,
     price,
     quantity,
@@ -14,8 +28,8 @@ function newProduct(title, price, quantity, description, category, image) {
       count: Math.floor(Math.random() * 200),
     },
   };
-  data.push(newArray);
-  localStorage.setItem("dataForProject", JSON.stringify(data));
+  console.log(newArray);
+  addProducts(newArray);
 }
 
 function addProduct() {
@@ -38,7 +52,7 @@ function addProduct() {
 const add = document.getElementsByTagName("button")[0];
 add.addEventListener("click", () => {
   addProduct();
-  window.location.assign('./home.html')
+  window.location.assign("./home.html");
 });
 
 function icons() {
