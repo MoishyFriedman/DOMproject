@@ -1,0 +1,91 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0%;
+    padding: 0%;
+    background-color: #F5EBEB;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffdecb;
+    padding: 0 0 0 10px;
+    color: #4d4d4d;
+}
+
+#headerIcon {
+    flex-grow: 0.05;
+    display: flex;
+    align-self: center;
+    justify-content: space-around;
+}
+
+.pointer {
+    color: #4d4d4d;
+}
+
+.pointer:hover {
+    cursor: pointer;
+    font-size: 1.6rem;
+}
+
+#mainContainer{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+   
+}
+
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 50px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
+    width: 80%;
+    margin: 20px;
+}
+
+label {
+    margin: 0;
+    width: 100%;
+    font-size: larger;
+}
+
+input {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 20px;
+    font-size: large;
+}
+
+#bigArea {
+    height: 150px;
+}
+
+button {
+    background-color: #ffdecb;
+    font-weight: bold;
+    font-size: larger;
+    text-align: center;
+    width: 150px;
+    height: 50px;
+    box-shadow: 2px 2px 2px 2px rgb(90, 89, 89);
+    margin: 20px 0;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4D4D4D;
+    gap: 20px;
+    height: 10vh;
+}

@@ -1,4 +1,4 @@
-const baseURL = "http://127.0.0.1:5000/routerProducts/";
+const baseURL = "http://127.0.0.1:5000/routerProducts/products";
 
 async function addProducts(newArray) {
   try {
@@ -9,7 +9,7 @@ async function addProducts(newArray) {
         "Content-Type": "application/json",
       },
     };
-    await fetch(baseURL + "products", metaData);
+    await fetch(baseURL, metaData);
   } catch (error) {
     console.log(error);
   }
@@ -28,7 +28,6 @@ function newProduct(title, price, quantity, description, category, image) {
       count: Math.floor(Math.random() * 200),
     },
   };
-  console.log(newArray);
   addProducts(newArray);
 }
 

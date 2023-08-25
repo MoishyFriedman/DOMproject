@@ -37,7 +37,7 @@ function BuildCard(product, arrayProducts, dataForProject) {
   remove.classList.add("material-icons", "icon");
   remove.textContent = "delete";
   const editLink = document.createElement("a");
-  editLink.href = "...";
+  editLink.href = "./editProduct.html?productId=" + card.id;
   const edit = document.createElement("i");
   edit.classList.add("material-icons", "icon");
   edit.textContent = "mode_edit";

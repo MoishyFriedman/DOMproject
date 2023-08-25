@@ -63,7 +63,7 @@ function icons() {
   headerIcon.append(pageHome, pageAdd);
 }
 
-async function dataProducts(productId) {
+async function getProduct(productId) {
   try {
     const data = await fetch(baseURL + productId);
     const json = await data.json();
@@ -73,16 +73,11 @@ async function dataProducts(productId) {
   }
 }
 
-async function getObject(productId) {
-  const product = await dataProducts(productId);
-  return product;
-}
-
-function getId() {
+async function getId() {
   const params = window.location.search;
   const searchParams = new URLSearchParams(params);
   const productId = Number(searchParams.get("productId"));
-  return getObject(productId);
+  return await getProduct(productId);
 }
 
 function main() {
